@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>教育學院非典型職涯校友訪談</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+<!-- ===== 頁面一：知情同意 ===== -->
+<div id="page-consent" class="page active">
+  <div class="container">
+    <div class="header">
+      <div class="logo">國立臺灣師範大學教育學院</div>
+      <h1>非典型職涯校友訪談計畫</h1>
+      <p class="subtitle">WISE 計畫第一階段先期研究</p>
+    </div>
+
+    <div class="card">
+      <h2>研究說明與知情同意</h2>
+
+      <div class="consent-content">
+        <h3>研究目的</h3>
+        <p>本研究旨在了解教育學院非典型就業校友的職涯歷程，評估就讀期間所培育的核心能力對職涯的重要性，並找出課程改革的具體建議方向。您的寶貴經驗將直接幫助教育學院改善課程設計，讓未來的學生做更好的準備。</p>
+
+        <h3>訪談方式</h3>
+        <p>本次訪談採用 <strong>AI 訪談員</strong>進行文字對話。您將與一位由 Claude（Anthropic 開發）驅動的 AI 訪談員對話，全程約 <strong>20 至 30 分鐘</strong>。</p>
+        <p>AI 訪談員會依據您的回答彈性追問，目的是深入了解您的實際經歷，而非收集制式問卷答案。</p>
+
+        <h3>資料保護</h3>
+        <ul>
+          <li>您的對話記錄將以<strong>匿名代號</strong>儲存，不會保存您的姓名或個人識別資訊</li>
+          <li>資料僅供本研究使用，不會用於商業目的</li>
+          <li>分析結果可能以匿名摘錄形式出現在研究報告或學術論文中</li>
+          <li>您可隨時中止訪談，不需說明原因</li>
+        </ul>
+
+        <h3>聯絡資訊</h3>
+        <p>研究負責人：張雨霖副教授（國立臺灣師範大學教育心理與輔導學系）<br />如有疑問，歡迎來信：<a href="mailto:yulin@ntnu.edu.tw">yulin@ntnu.edu.tw</a></p>
+      </div>
+
+      <div class="consent-check">
+        <label class="checkbox-label">
+          <input type="checkbox" id="consent-check" />
+          <span>我已閱讀以上說明，了解本次訪談由 AI 訪談員進行，同意參與此研究並同意資料依上述方式使用</span>
+        </label>
+      </div>
+
+      <button id="btn-consent" class="btn btn-primary" disabled onclick="goToForm()">
+        我同意，繼續填寫背景資料 →
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 頁面二：背景資料表單 ===== -->
+<div id="page-form" class="page">
+  <div class="container">
+    <div class="header">
+      <div class="logo">國立臺灣師範大學教育學院</div>
+      <h1>基本背景資料</h1>
+      <p class="subtitle">此資料幫助 AI 訪談員了解您的背景，提供更切題的問題</p>
+    </div>
+
+    <div class="card">
+      <form id="background-form" onsubmit="startInterview(event)">
+
+        <div class="form-group">
+          <label for="department">畢業系所 <span class="required">*</span></label>
+          <select id="department" required>
+            <option value="">請選擇</option>
+            <option>教育學系</option>
+            <option>教育心理與輔導學系</option>
+            <option>健康促進與衛生教育學系</option>
+            <option>人類發展與家庭學系</option>
+            <option>公民教育與活動領導學系</option>
+            <option>特殊教育學系</option>
+            <option>社會教育學系</option>
+            <option>教育學院不分系學士班</option>
+            <option>其他教育學院相關系所</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="graduation-year">畢業年份（學士）<span class="required">*</span></label>
+          <select id="graduation-year" required>
+            <option value="">請選擇</option>
+            <option>2024</option><option>2023</option><option>2022</option>
+            <option>2021</option><option>2020</option><option>2019</option>
+            <option>2018</option><option>2017</option><option>2016</option>
+            <option>2015</option><option>2014</option><option>2013</option>
+            <option>2012</option><option>2011</option><option>2010</option>
+            <option>2009</option><option>2008</option><option>2007</option>
+            <option>2006</option><option>2005 以前</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="job-category">目前職業類別 <span class="required">*</span></label>
+          <select id="job-category" required>
+            <option value="">請選擇</option>
+            <option>企業培訓 / 人才發展（HR）</option>
+            <option>科技業（軟硬體、IT）</option>
+            <option>媒體 / 傳播 / 行銷</option>
+            <option>非營利組織（NGO / NPO）</option>
+            <option>諮商 / 心理 / 社工</option>
+            <option>政策研究 / 智庫 / 倡議</option>
+            <option>創業 / 自由接案</option>
+            <option>金融 / 保險 / 財務</option>
+            <option>設計 / 創意產業</option>
+            <option>醫療 / 健康照護</option>
+            <option>出版 / 教育科技（EdTech）</option>
+            <option>其他（請在後方說明）</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="current-job">目前職位簡述 <span class="required">*</span></label>
+          <input type="text" id="current-job" placeholder="例如：某科技公司員工培訓專員、自由接案講師" required />
+        </div>
+
+        <div class="form-group">
+          <label for="career-timing">您大約在什麼時候進入現在的職涯領域？<span class="required">*</span></label>
+          <select id="career-timing" required>
+            <option value="">請選擇</option>
+            <option>畢業後直接進入</option>
+            <option>畢業後 1 年內轉換</option>
+            <option>畢業後 2-3 年轉換</option>
+            <option>畢業後 4-5 年轉換</option>
+            <option>畢業後 6-10 年轉換</option>
+            <option>畢業後超過 10 年才轉換</option>
+          </select>
+        </div>
+
+        <div id="form-error" class="error-msg" style="display:none;"></div>
+
+        <button type="submit" class="btn btn-primary" id="btn-start">
+          開始訪談 →
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 頁面三：AI 對話訪談 ===== -->
+<div id="page-chat" class="page">
+  <div class="chat-container">
+    <div class="chat-header">
+      <div class="chat-title">教育學院校友職涯訪談</div>
+      <div class="chat-meta">
+        <span id="participant-label"></span>
+        <span id="time-elapsed">00:00</span>
+      </div>
+    </div>
+
+    <div id="chat-messages" class="chat-messages">
+      <!-- 訊息動態插入 -->
+    </div>
+
+    <div id="interview-ended" class="interview-ended" style="display:none;">
+      <div class="ended-icon">✓</div>
+      <h3>訪談已完成</h3>
+      <p>感謝您的寶貴分享！您的訪談記錄已安全儲存，將用於教育學院課程改善研究。</p>
+      <p class="ended-id" id="ended-participant-id"></p>
+    </div>
+
+    <div id="chat-input-area" class="chat-input-area">
+      <textarea
+        id="user-input"
+        placeholder="請輸入您的回覆…（按 Enter 傳送，Shift+Enter 換行）"
+        rows="3"
+        onkeydown="handleEnterKey(event)"
+      ></textarea>
+      <button id="send-btn" class="btn btn-send" onclick="sendMessage()">傳送</button>
+    </div>
+  </div>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
