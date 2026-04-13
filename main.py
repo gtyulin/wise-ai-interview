@@ -19,7 +19,7 @@ from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
 # ── 設定 ──────────────────────────────────────────────────────────────
-GEMINI_API_KEY = "AIzaSyCZpKESo8AC-9gqwzGXsdE_Ry-UFkLMsYw"
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 GEMINI_MODEL   = "gemini-3.1-flash-image-preview"
 
 # Google Drive：從環境變數讀取（Render 上設定）

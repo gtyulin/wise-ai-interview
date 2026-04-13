@@ -49,8 +49,9 @@ async function startInterview(event) {
     });
 
     if (!res.ok) {
-      const err = await res.json();
-      throw new Error(err.detail || '伺服器錯誤，請稍後再試');
+      let errMsg = '伺服器錯誤，請稍後再試';
+      try { const err = await res.json(); errMsg = err.detail || errMsg; } catch (_) {}
+      throw new Error(errMsg);
     }
 
     const data = await res.json();
